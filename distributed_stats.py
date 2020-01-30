@@ -73,22 +73,21 @@ def _compute_stats(partition):
         "true": 0
     }
     for row_values in partition.values():
-        val1 = getattr(row_values, "val1")
+        val1 = row_values.val1
         val1_stats["count"] += 1
-        val1_stats["max_len"] = max(val1_stats["max_len"], len(val1))
         val1_stats["max_len"] = max(val1_stats["max_len"], len(val1))
         if len(val1) == 0:
             val1_stats["empty_values"] += 1
         else:
             val1_stats["min_len"] = min(val1_stats["min_len"], len(val1))
 
-        val2 = getattr(row_values, "val2")
+        val2 = row_values.val2
         val2_stats["count"] += 1
         val2_stats["max"] = max(val2_stats["max"], val2)
         val2_stats["min"] = min(val2_stats["min"], val2)
         val2_stats["sum"] += val2
 
-        val3 = getattr(row_values, "val3")
+        val3 = row_values.val3
         val3_stats["count"] += 1
         if val3:
             val3_stats["true"] += 1
@@ -119,7 +118,9 @@ def main():
         time.sleep(2)
 
     stats = compute_stats(data)
+    print("\n")
     pprint(stats)
+    print("\n")
 
 
 if __name__ == "__main__":
