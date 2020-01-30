@@ -6,7 +6,7 @@ cd /opt
 source /opt/venv-hecuba/bin/activate
 
 # Install Hecuba
-pip3 install hecuba
+pip3 install hecuba --upgrade
 
 # Clone hands-on
 git clone https://github.com/polsm91/Hecuba-Hands-on.git /opt/hecuba_handson
